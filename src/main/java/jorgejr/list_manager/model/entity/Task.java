@@ -1,7 +1,8 @@
 package jorgejr.list_manager.model.entity;
 
 import jakarta.persistence.*;
-
+import jorgejr.list_manager.model.dto.TaskInput;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Entity
@@ -28,7 +29,7 @@ public class Task {
     private Boolean concluida = false;
 
     @ManyToOne
-    @JoinColumn(name = "task_list_id", nullable = false)
+    @JoinColumn(name = "task_list_id")
     private TaskList taskList;
 
     // Getters and Setters
@@ -86,5 +87,25 @@ public class Task {
 
     public void setTaskList(TaskList taskList) {
         this.taskList = taskList;
+    }
+
+    public Task(TaskInput input){
+        this.titulo = input.titulo();
+        this.descricao = input.descricao();
+        this.dataCriacao = LocalDateTime.now();
+        this.dataConclusao = null;
+        this.concluida = false;
+    }
+
+    public void update(TaskInput input){
+
+        if(input.titulo() != null){
+             this.titulo = input.titulo();
+      }
+
+        if(input.descricao() != null){
+            this.descricao = input.descricao();
+        }
+
     }
 }
