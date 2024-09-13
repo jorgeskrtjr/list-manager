@@ -2,8 +2,9 @@ package jorgejr.list_manager.model.entity;
 
 import jakarta.persistence.*;
 import jorgejr.list_manager.model.dto.TaskInput;
-import java.time.LocalDate;
+
 import java.time.LocalDateTime;
+import java.util.Optional;
 
 @Entity
 @Table(name = "task")
@@ -88,7 +89,8 @@ public class Task {
     public void setTaskList(TaskList taskList) {
         this.taskList = taskList;
     }
-
+    public Task() {
+    }
     public Task(TaskInput input){
         this.titulo = input.titulo();
         this.descricao = input.descricao();

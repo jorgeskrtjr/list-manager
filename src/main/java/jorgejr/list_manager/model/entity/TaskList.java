@@ -1,6 +1,7 @@
 package jorgejr.list_manager.model.entity;
 
 import jakarta.persistence.*;
+import jorgejr.list_manager.model.dto.TaskListInput;
 
 @Entity
 @Table(name = "task_list")
@@ -38,5 +39,12 @@ public class TaskList {
 
     public void setDescricao(String descricao) {
         this.descricao = descricao;
+    }
+
+    public TaskList() {
+    }
+    public TaskList(TaskListInput input){
+         this.nome = input.nome();
+         this.descricao =  input.descricao();
     }
 }
