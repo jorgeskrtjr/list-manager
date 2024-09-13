@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -36,6 +37,12 @@ public class TaskController {
         var task = repository.findById(id);
 
         return ResponseEntity.ok(task);
+    }
+
+    @GetMapping("/list/{taskListId}")
+    public List<Task> getTasksByTaskList(@PathVariable Long taskListId) {
+
+        return service.getTasksByTaskListId(taskListId);
     }
 
     @PutMapping
