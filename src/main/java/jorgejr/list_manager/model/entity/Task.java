@@ -5,11 +5,9 @@ import jorgejr.list_manager.model.dto.TaskInput;
 
 import java.time.LocalDateTime;
 import java.util.Optional;
-
 @Entity
 @Table(name = "task")
 public class Task {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

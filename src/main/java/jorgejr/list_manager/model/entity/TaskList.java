@@ -6,7 +6,6 @@ import jorgejr.list_manager.model.dto.TaskListInput;
 @Entity
 @Table(name = "task_list")
 public class TaskList {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
